@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Script that shows 4, 9, 17 as a bad luck number
+a=1
+while [ $a -lt 21 ];
+do
+case $a in
+	4)
+	echo "4"
+	echo "bad luck from China"
+	a=$((a+1))
+	;;
+	9)
+        echo "9"
+        echo "bad luck from Japan"
+        a=$((a+1))
+        ;;
+	17)
+        echo "17"
+        echo "bad luck from Italy"
+        a=$((a+1))
+        ;;
+	*)	
+	echo $a
+	a=$((a+1))
+	;;
+esac
+done

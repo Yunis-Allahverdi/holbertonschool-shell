@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# List all contents 
+for i in $(ls | cut --complement -f1 -d '-'); do
+	echo "$i"
+done

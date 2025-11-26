@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+hr=0
+min=1
+echo "Hour: $hr"
+while [ $hr -lt 12 ];
+do
+echo $min
+if [ $min -eq 59 ]; then
+	min=0
+	hr=$((hr + 1))
+	if [ $hr -ne 12 ]; then
+		echo "Hour: $hr"
+	fi
+fi
+min=$((min + 1))
+done

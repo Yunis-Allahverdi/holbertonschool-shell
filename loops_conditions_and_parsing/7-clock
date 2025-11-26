@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Clock timing hr and min
 hr=0
 min=1
 echo "Hour: $hr"

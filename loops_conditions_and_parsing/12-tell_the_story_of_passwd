@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script that prints the story of passwd
+a=1
+b=$(grep -c . /etc/passwd)
+while [ $a -lt $((b + 1)) ]; do
+	USERNAME=$(head -n "$a" /etc/passwd | tail -1 | cut -f1 -d ':')
+	GROUP_ID=$(head -n "$a" /etc/passwd | tail -1 | cut -f4 -d ':')
+	HOME_DIRECTORY=$(head -n "$a" /etc/passwd | tail -1 | cut -f6 -d ':')
+	COMMAND=$(head -n "$a" /etc/passwd | tail -1 | cut -f7 -d ':')
+	USER_ID=$(head -n "$a" /etc/passwd | tail -1 | cut -f3 -d ':')
+	PASSWORD=$(head -n "$a" /etc/passwd | tail -1 | cut -f2 -d ':')
+	USER_ID_INFO=$(head -n "$a" /etc/passwd | tail -1 | cut -f5 -d ':')
+	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
+	a=$((a+1))
+done

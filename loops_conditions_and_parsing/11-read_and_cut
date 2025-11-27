@@ -2,7 +2,7 @@
 # Read and Cut
 a=1
 b=$(grep -c . /etc/passwd)
-while [ $a -lt $b ]; do
+while [ $a -lt $((b+1)) ]; do
 	echo $(head -n "$a" /etc/passwd | tail -1 | cut -f1,3,6 -d ':')
 	a=$((a+1))
 done;

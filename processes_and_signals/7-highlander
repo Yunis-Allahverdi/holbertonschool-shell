@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Script that displays text indefinitely
-trap "I am invincible!!!" SIGTERM
+say_my_name() {
+	echo "I am invincible!!!"
+}
+trap say_my_name SIGTERM
 a=0
 while [ $a -lt 1 ]; do
 	echo "To infinity and beyond"

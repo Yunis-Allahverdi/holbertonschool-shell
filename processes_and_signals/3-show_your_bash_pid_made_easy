@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Script that shows bash and current script PID
+pgrep -l bash

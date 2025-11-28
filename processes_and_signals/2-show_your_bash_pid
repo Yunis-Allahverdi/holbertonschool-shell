@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that shows processes named /bin
+# shellcheck disable=SC2009
+ps -u | grep /bin

@@ -9,13 +9,13 @@ start_service() {
 }
 stop_service() {
 	pid="echo $$"
-	pkill -9 $pid
+	pkill -9 "$pid"
 	rm /var/run/my_process.pid
 	echo "manage_my_process stopped"
 }
 restart_service() {
         pid="echo $$"
-        pkill -9 $pid
+        pkill -9 "$pid"
         rm /var/run/my_process.pid
 	./manage_my_process
 	filename="/var/run/myscript.pid"

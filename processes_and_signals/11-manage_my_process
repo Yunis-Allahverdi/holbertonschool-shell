@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 # Script that takes arguments like start, stop and restart
+file="/var/run/my_process.pid"
 start_service() {
-	touch /var/run/my_process.pid
-	pid="echo $$"
-	echo "$pid" >> /var/run/my_process.pid
+	./manage_my_process &
+    	pid=$!
+    	echo "$pid" > "$file"
 	echo "manage_my_process started"
-	./manage_my_process
 }
 stop_service() {
-	pid="echo $$"
-	pkill -9 "$pid"
-	rm /var/run/my_process.pid
+	pid=$!
+	kill -9 "$pid"
+	rm "$file"
 	echo "manage_my_process stopped"
 }
 restart_service() {
-        pid="echo $$"
-        pkill -9 "$pid"
-        rm /var/run/my_process.pid
-	echo "$pid" >> manage_my_process
+        pid=$!
+        kill -9 "$pid"
+        rm "$file"
         echo "manage_my_process restarted"
-	./manage_my_process
+	./manage_my_process &
+        pid=$!
+        echo "$pid" > "$file"
 }
 case "$1" in
 	start)

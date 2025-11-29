@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script that manipulates other file
+a=0
+while [ $a -lt 1 ]; do
+	echo "I am alive!" >> /tmp/my_process
+	sleep 2
+done

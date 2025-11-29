@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # Script that takes arguments like start, stop and restart
 start_service() {
-	./manage_my_process
-	filename="/var/run/myscript.pid"
 	pid="echo $$"
-	echo "$pid" > "$filename"
+	echo "$pid" >> manage_my_process
 	echo "manage_my_process started"
+	./manage_my_process
 }
 stop_service() {
 	pid="echo $$"
@@ -17,10 +16,9 @@ restart_service() {
         pid="echo $$"
         pkill -9 "$pid"
         rm /var/run/my_process.pid
-	./manage_my_process
-	filename="/var/run/myscript.pid"
-	echo "$pid" > "$filename"
+	echo "$pid" >> manage_my_process
         echo "manage_my_process restarted"
+	./manage_my_process
 }
 case "$1" in
 	start)

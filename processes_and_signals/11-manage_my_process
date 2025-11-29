@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Script that takes arguments like start, stop and restart
 start_service() {
+	touch /var/run/my_process.pid
 	pid="echo $$"
-	echo "$pid" >> manage_my_process
+	echo "$pid" >> /var/run/my_process.pid
 	echo "manage_my_process started"
 	./manage_my_process
 }

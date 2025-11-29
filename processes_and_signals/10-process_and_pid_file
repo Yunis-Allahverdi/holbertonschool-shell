@@ -3,14 +3,13 @@
 filename="/var/run/myscript.pid"
 pid="echo $$"
 echo "$pid" > "$filename"
-echo "$pid"
-a=0
-while [ $a -lt 1 ]; do
-        echo "To infinity and beyond"
-        sleep 2
-done
 say_my_name() {
         echo "I hate the kill command"
 }
 
 trap say_my_name SIGTERM
+a=0
+while [ $a -lt 1 ]; do
+        echo "To infinity and beyond"
+        sleep 2
+done
